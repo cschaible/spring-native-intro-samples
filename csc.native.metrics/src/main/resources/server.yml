@@ -1,0 +1,22 @@
+spring:
+  config:
+    activate:
+      on-profile: "!test"
+
+server:
+  shutdown: graceful
+  tomcat:
+    mbeanregistry:
+      enabled: true
+
+shutdown:
+  timeout-seconds: 5
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: "*"
+    web:
+      exposure:
+        include: "*"

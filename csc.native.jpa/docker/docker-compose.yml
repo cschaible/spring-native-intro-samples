@@ -1,0 +1,44 @@
+version: "3"
+services:
+  mysql:
+    container_name: mariadb
+    image: mariadb:10.5
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: springnative
+      MARIADB_USER: spring
+      MARIADB_PASSWORD: secret
+      MARIADB_DATABASE: springnative
+
+  pgadmin:
+    image: dpage/pgadmin4
+    hostname: pgadmin
+    container_name: pgadmin
+    ports:
+      - "5433:5433"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: administr@to.rs
+      PGADMIN_DEFAULT_PASSWORD: secret
+      PGADMIN_LISTEN_PORT: 5433
+    depends_on:
+      - postgresql
+  
+  postgresql:
+    image: postgres
+    hostname: postgres
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      PGPASSWORD: secret
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ./create-databases.sh:/docker-entrypoint-initdb.d/create-databases.sh:ro
+    

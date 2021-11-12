@@ -1,0 +1,19 @@
+logging:
+  level:
+    ROOT: warn
+    io:
+      micrometer.core.instrument.binder.jvm.JvmGcMetrics: error
+      nvtc.csc.jpa:
+        config:
+          ShutdownConfig: info
+        Application: info
+        ApplicationKt: info
+    org:
+      hibernate.id.enhanced.OptimizerFactory: error
+      springframework:
+        boot:
+          context: info
+          web.embedded.tomcat:
+            GracefulShutdown: info
+            TomcatWebServer: info
+          SpringApplication: info

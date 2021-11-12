@@ -1,0 +1,28 @@
+logging:
+  level:
+    ROOT: warn
+    io:
+      micrometer.core.instrument.binder.jvm.JvmGcMetrics: error
+      nvtc.csc.logging:
+        config:
+          ShutdownConfig: info
+        Application: info
+        ApplicationKt: info
+    org:
+      springframework:
+        boot:
+          context: info
+          web.embedded.tomcat:
+            GracefulShutdown: info
+            TomcatWebServer: info
+          SpringApplication: info
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "log-requests"
+
+logging:
+  level:
+    io.nvtc.csc.logging.service: debug

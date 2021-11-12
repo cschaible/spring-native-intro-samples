@@ -1,0 +1,26 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      keyDeserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      valueDeserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      enableAutoCommit: false
+      group-id: "csc-native-test"
+      properties:
+        auto.offset.reset: earliest
+        isolation.level: read_committed
+        spring.json.trusted.packages: "*"
+    listener:
+      concurrency: 3
+    producer:
+      keySerializer: org.springframework.kafka.support.serializer.JsonSerializer
+      valueSerializer: org.springframework.kafka.support.serializer.JsonSerializer
+      batch-size: 64000
+      acks: all
+      properties:
+        enable.idempotence: true
+        max.in.flight.requests.per.connection: 1
+        request.timeout.ms: 10000
+    properties:
+      key.subject.name.strategy: io.confluent.kafka.serializers.subject.RecordNameStrategy
+      value.subject.name.strategy: io.confluent.kafka.serializers.subject.RecordNameStrategy

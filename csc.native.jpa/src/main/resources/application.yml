@@ -1,0 +1,17 @@
+spring:
+  config:
+    import:
+      - classpath:logging.yml
+      - classpath:mariadb.yml
+      - classpath:postgresql.yml
+      - classpath:server.yml
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        implicit_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        order_inserts: true
+        order_updates: true

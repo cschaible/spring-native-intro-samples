@@ -1,0 +1,5 @@
+spring:
+  config:
+    import:
+      - classpath:logging.yml
+      - classpath:server.yml

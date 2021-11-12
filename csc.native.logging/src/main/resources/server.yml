@@ -1,0 +1,10 @@
+spring:
+  config:
+    activate:
+      on-profile: "!test"
+
+server:
+  shutdown: graceful
+
+shutdown:
+  timeout-seconds: 5

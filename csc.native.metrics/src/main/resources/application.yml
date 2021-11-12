@@ -1,0 +1,6 @@
+spring:
+  config:
+    import:
+      - classpath:kafka.yml
+      - classpath:logging.yml
+      - classpath:server.yml

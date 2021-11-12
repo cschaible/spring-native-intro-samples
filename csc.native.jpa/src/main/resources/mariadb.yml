@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: mariadb
+  datasource:
+    driverClassName: org.mariadb.jdbc.Driver
+    hikari:
+      minimum-idle: 15
+      maximum-pool-size: 45
+      idle-timeout: 120000
+      max-lifetime: 840000
+      connectionInitSql: "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci"
+    url: jdbc:mysql://localhost:3306/springnative?user=spring&password=secret&useSSL=false
+#  jpa:
+#    properties:
+#      hibernate.dialect: org.hibernate.dialect.MariaDB103Dialect

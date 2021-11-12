@@ -1,0 +1,12 @@
+spring:
+  config:
+    activate:
+      on-profile: postgres
+  datasource:
+    driverClassName: org.postgresql.Driver
+    hikari:
+      minimum-idle: 15
+      maximum-pool-size: 45
+      idle-timeout: 120000
+      max-lifetime: 840000
+    url: jdbc:postgresql://localhost:5432/springnative?user=spring&password=secret
