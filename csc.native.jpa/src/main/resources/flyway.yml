@@ -1,0 +1,14 @@
+spring:
+  config:
+    activate:
+      on-profile: mariadb
+  flyway:
+    locations: classpath:db/migration/mariadb
+
+---
+spring:
+  config:
+    activate:
+      on-profile: postgres
+  flyway:
+    locations: classpath:db/migration/postgres

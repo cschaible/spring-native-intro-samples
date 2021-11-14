@@ -9,6 +9,7 @@ logging:
         Application: info
         ApplicationKt: info
     org:
+      flywaydb.core.internal.command: info
       hibernate.id.enhanced.OptimizerFactory: error
       springframework:
         boot:

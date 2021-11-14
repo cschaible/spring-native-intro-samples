@@ -1,13 +1,14 @@
 spring:
   config:
     import:
+      - classpath:flyway.yml
       - classpath:logging.yml
       - classpath:mariadb.yml
       - classpath:postgresql.yml
       - classpath:server.yml
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     open-in-view: false
     properties:
       hibernate:
