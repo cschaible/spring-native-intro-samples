@@ -17,9 +17,9 @@
 package io.nvtc.csc.jpa;
 
 import com.oracle.svm.core.annotate.AutomaticFeature;
-import org.flywaydb.core.api.logging.Log;
-import org.flywaydb.core.api.logging.LogFactory;
 import org.graalvm.nativeimage.hosted.Feature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URI;
@@ -51,7 +51,7 @@ import java.util.stream.Stream;
 @AutomaticFeature
 public final class FlywayFeature implements Feature {
 
-  private static final Log LOG = LogFactory.getLog(FlywayFeature.class);
+  private static final Logger LOG = LoggerFactory.getLogger(FlywayFeature.class);
 
   private static final String CLASSPATH_APPLICATION_MIGRATIONS_PROTOCOL = "classpath";
   private static final String JAR_APPLICATION_MIGRATIONS_PROTOCOL = "jar";

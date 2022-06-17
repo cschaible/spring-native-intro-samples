@@ -17,11 +17,11 @@
 package io.nvtc.csc.jpa;
 
 import org.flywaydb.core.api.Location;
-import org.flywaydb.core.api.logging.Log;
-import org.flywaydb.core.api.logging.LogFactory;
 import org.flywaydb.core.api.resource.LoadableResource;
 import org.flywaydb.core.internal.resource.classpath.ClassPathResource;
 import org.flywaydb.core.internal.scanner.classpath.ResourceAndClassScanner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ import java.util.List;
 @SuppressWarnings("rawtypes")
 public final class NativePathLocationScanner implements ResourceAndClassScanner {
 
-  private static final Log LOG = LogFactory.getLog(NativePathLocationScanner.class);
+  private static final Logger LOG = LoggerFactory.getLogger(NativePathLocationScanner.class);
 
   private static final String LOCATION_SEPARATOR = "/";
   private static List<String> applicationMigrationFiles;
